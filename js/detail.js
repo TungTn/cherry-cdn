@@ -5,12 +5,16 @@ var Detail = {
 				<div class="banner-list-area">
 					<img class="banner-area" src="/en/area/cherry-blossom/list-area-img/banner-list-are01.jpg" alt="banner">
 					<div class="container cont-banner-area">
-						<figure>
-							<img :src="items.detailImage" class="banner" />
-						</figure>
+						<div v-for="(item, id) in items" :key="id">
+							<div v-for="(image, id2) in item.detailItem" :key="id2">								
+								<img 
+									:src="image.detailImage" class="banner" 
+								/>
+							</div>
+						</div>
 					</div>            
 				</div>   
-			</div> 			
+			</div>			
 		</div>
 	`,
 	components: {
@@ -24,23 +28,17 @@ var Detail = {
 		}
 	},
 	mounted: function() { 
-		axios.get('json/home.json')
-		.then(function(response){
-			this.items = response.data.forEach((item) => {
-				item.detailItem.find((itemId) => {
-					if ( itemId !== undefined ) {
-						console.log(itemId)
-						return itemId.detailId === this.router
-					}
-				})
-			})				
-		}.bind(this)) 
-		.catch(function(error){
-			this.hasError = true;
-		}.bind(this))
-		.finally(function(){
-			this.loaded = true
-		}.bind(this))
+		axios.get('json/newcommon.json')
+			.then((response) => {
+			this.items = response.data.detail
+			console.log(this.items[this.router - 1])
+//			this.items.forEach((item) => {
+//				item.detailItem.forEach((itemId) => {
+//					console.log(itemId.detailImage)
+//					itemId.detailId === this.router
+//				})
+//			}) 
+		})
 		this.show = true
 	},	
 	updated: function () {

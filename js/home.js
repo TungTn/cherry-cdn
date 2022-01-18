@@ -52,19 +52,6 @@ var Home = {
 									</ul> 
 								</div> 
 								<div id="maplistContents">
-									<div id="mapPage">
-										<img :src="imgMap" alt="map" usemap="#image-map" class="tour-map">
-										<div v-for="item in items" :key="item.id">
-											<router-link :to="{name: 'list', params: { areaId: item.keyName },}" class="underline">
-												<p :class="item.listLink" class="abs-position">
-													<span class="spot-name">
-														{{ item.tabName }}
-													</span> 
-													<br/> {{ item.fullbloom2021 }}
-												</p>
-											</router-link>
-										</div>									
-									</div>
 									<div id="listPage">
 										<table class="sakuraplace-tbl">
 											<tr>
@@ -80,11 +67,7 @@ var Home = {
 												<th class="bg-pink-semibold">Date of full bloom</th>
 											</tr>
 											<tr v-for="item in items" :key="item.id">
-												<td class="tblistplace bg-white">
-													<router-link :to="{name: 'list', params: { areaId: item.keyName },}" class="underline">
-														{{ item.tabName }}
-													</router-link>
-												</td>
+
 												<td class="bg-yellow-normal" align="left">{{ item.firstbloom2021 }}</td>
 												<td class="bg-yellow-normal" align="left">{{ item.fullbloom2021 }}</td>
 												<td class="bg-pink-normal" align="left">{{ item.firstbloom2020 }}</td>
@@ -112,20 +95,22 @@ var Home = {
 								</div>
 								<div id="spotList">
 									<ul class="nav nav-tabs">
-										<li v-for="(item, index) in items" :class="{'active': index === 0}" class="nav-item" :key="item.keyName">
+										<li v-for="(item, index) in items.home" :class="{'active': index === 0}" class="nav-item" :key="item.keyName">
 											<a :class="{'active': index === 0}" class="nav-link" data-toggle="tab" :href="'#' + item.keyName">
 												<span>{{ item.tabName }}</span> <span><i class="fas fa-angle-down"></i></span>
 											</a>
 										</li>
 									</ul>
 									<div class="tab-content">
-										<div v-for="(item, index) in items" :class="{'active': index === 0}" class="tab-pane list-popular" :id="item.keyName" :key="item.keyName">
+										<div v-for="(item, index) in items.home" :class="{'active': index === 0}" class="tab-pane list-popular" :id="item.keyName" :key="item.keyName">
 											<h3 class="ttl-tab">{{ item.areaName }}</h3>
 											<ul>
-												<li v-for="miniItem in item.detailItem" :key="miniItem.detailId" :id="miniItem.detailId" class="maxheight col-md-4 col-sm-12 col-xs-12">
+												<li v-for="miniItem in items.detail[item.keyName]" :key="miniItem.detailId" :id="miniItem.detailId" class="maxheight col-md-4 col-sm-12 col-xs-12">
 													<router-link :to="{name: 'detail', params: { productsId: miniItem.detailId },}">
 														<div class="details-list">
-															<div class="img-thumb"><img :src="miniItem.listImage" :alt="miniItem.listAlt" /></div>
+															<div class="img-thumb">
+																{{ miniItem.detailName }}
+															<img :src="miniItem.listImage" :alt="miniItem.listAlt" /></div>
 															<div class="name-tour">
 																<h3>{{ miniItem.detailName }}</h3>
 															</div>
@@ -134,9 +119,7 @@ var Home = {
 												</li>
 											</ul>
 											<div class="text-center btn-detail">
-												<router-link :to="{name: 'list', params: { areaId: item.keyName },}">
-													View details
-												</router-link>
+									
 											</div>
 										</div>
 									</div>
@@ -263,9 +246,12 @@ var Home = {
 		} 
 	},
 	mounted: function() {
-		axios.get('json/home.json')
+		axios.get('json/newcommon.json')
 		.then(function(response){
-			this.items = response.data			
+			this.items = JSON.parse(response.data)
+			console.log(response)
+			console.log(111)
+			console.log(111, this.items)			
 		}.bind(this))
 		.catch(function(error){
 			this.hasError = true;
