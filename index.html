@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Japan Cherry Blossom Forecast & Spots 2021 | WILLER TRAVEL</title>
+<meta name="keywords" content="Japanese sakura, cherry blossom forecast, 2021 hanami japan, spring, 2021, WILLER TRAVEL, highway bus, night bus">
+<meta name="description" content="Cherry blossom forecast in 2021! Get information about cherry blossom throughout Japan such as Tokyo, Osaka, Kyoto and Fukuoka.">
+<link rel="canonical" href="https://willerexpress.com/en/area/cherry-blossom/">
+<!-- full path -->
+<!-- meta information -->
+<meta property="og:title" content="Japan Cherry Blossom Forecast & Spots 2021 / Bus, Night Bus, Booking in Japan / Willer">
+<meta property="og:type" content="article">
+<!-- article (if home page: website) -->
+<meta property="og:url" content="https://willerexpress.com/en/area/cherry-blossom/">
+<!-- same as canonical -->
+<meta property="og:image" content="https://willerexpress.com/en/area/cherry-blossom/img/ogp.jpg">
+<!-- Full path URL size: 1200x630 -->
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
+<meta name="format-detection" content="telephone=no">
+<link rel="shortcut icon" href="//willerexpress.com/favicon.ico">
+<!-- meta information end-->
+<!-- Common CSS -->
+<link href="/st/3/en/pc/css/bootstrap.css" rel="stylesheet" />
+<link href="/st/3/en/pc/css/bootstrap-datepicker.min.css" rel="stylesheet">
+<link href="/st/3/en/pc/include/css/header_footer.css" rel="stylesheet">
+<link href="/st/3/en/pc/include/css/header_footer_reset.css" rel="stylesheet">	
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet">
+<link href="/st/3/en/pc/css/style.css" rel="stylesheet">	
+<link href="/st/3/en/pc/css/style_suggest_search_v2.css" rel="stylesheet">
+<!-- Common CSS End -->
+<!-- CSS only on this page -->
+<link href="/en/area/cherry-blossom/style.css" rel="stylesheet" type="text/css" media="screen,tv,print" />
+<!-- CSS only on detail page -->
+<link href="/en/area/cherry-blossom/list-area-style.css" rel="stylesheet" type="text/css" media="screen,tv,print" />
+<!-- For roundtrip APIp -->
+<link href="/st/3/en/pc/css/list_style_oneway.css" rel="stylesheet">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N938');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N938"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<article id="header-footer-standard">
+	<div id="app"> 
+		<router-view></router-view>
+	</div>
+</article>
+
+<!--Common JS --> 
+<script src="/st/3/en/pc/js/jquery.min.js"></script> 
+<script src="/st/3/en/pc/js/bootstrap.min.js"></script> 
+<script src="/st/3/en/pc/static/js/header_footer_standard.js"></script> 
+<script src="/st/3/en/pc/static/js/common.js"></script> 
+<script src="/stc/3/js/bus_search/multi_lang/suggest_bus_top.js?v=0.1" async></script>
+<script src="/st/share/lib/js/tagengo_googleanalytics/google_en.js" async></script><!-- Google Analytics --> 
+<!-- Common JS End --> 
+<!-- Vue.js --> 
+<script src="/static/js/vue/vue.min.js"></script>
+<script src="/static/js/vue/axios.min.js"></script>
+<script src="/static/js/vue/promise-polyfill.min.js"></script>
+<script src="/static/js/vue/vue-router.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-carousel@0.18.0/dist/vue-carousel.min.js"></script>
+<!-- Vue Pages -->
+<script src="js/home.js"></script>
+<script src="js/list.js"></script>
+<script src="js/detail.js"></script>
+<script> 
+	const routes = [
+		{ 
+			path: '/', 
+			component: Home  
+		},
+		{
+			path: '/list/:areaId', 
+			name: 'list',
+			component: List
+		},
+		{ 
+			path: '/detail/:productsId', 
+			name: "detail",
+		 	component: Detail 
+		}
+	];  
+	const router = new VueRouter({
+		routes: routes, // short for `routes: routes`
+		history: true,
+		base: "/en/area/cherry-blossom/",
+		default: Home
+	});
+	
+	const app = new Vue({
+		el: "#app",		
+		router: router
+	});
+	Vue.config.devtools = true;
+	new Vue({
+		el: "#slider"
+	})
+</script>
+<script type="text/javascript" defer>
+$(function(){
+	$('.maxheight').matchHeight();
+});
+</script> 
+<script type="application/ld+json">
+  {
+    "@context" : "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+    {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+             "@id": "https://willerexpress.com/en/",
+             "name": "Home"
+        }
+    },
+    {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+             "@id": "https://willerexpress.com/en/area/cherry-blossom/",
+             "name": "Japan Cherry Blossom spots 2021"
+        }
+     }
+    ]
+}
+</script> 
+</body>
+</html>
